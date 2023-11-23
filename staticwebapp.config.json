@@ -21,6 +21,10 @@
             "allowedRoles": ["anonymous", "authenticated"]
         },
         {
+            "route": "/data-api/*",
+            "allowedRoles": ["anonymous", "authenticated"]
+        },
+        {
             "route": "/*",
             "allowedRoles": ["authenticated"]
         }

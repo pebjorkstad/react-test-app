@@ -20,6 +20,8 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "@apollo/client": "^3.8.7",
+    "graphql": "^16.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-bootstrap-icons": "^1.10.3",

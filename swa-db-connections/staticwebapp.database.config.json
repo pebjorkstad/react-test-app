@@ -1,0 +1,45 @@
+{
+  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v0.9.7/dab.draft.schema.json",
+  "data-source": {
+    "database-type": "cosmosdb_nosql",
+    "connection-string": "AccountEndpoint=https://pfizer-project.documents.azure.com:443/;AccountKey=UDRmj20PVWsZYM6P0BWlHY1aiNhUJy9kldtcA9SifoNFqbd3ri8jTRLasHxofaSUU62JsYe0pYoTACDbbpQ7Lw==",
+    "options": {
+      "database": "scientific-footprint",
+      "container": "projects",
+      "schema": "staticwebapp.database.schema.gql"
+    }
+  },
+  "runtime": {
+    "rest": {
+      "enabled": true,
+      "path": "/rest",
+      "request-body-strict": true
+    },
+    "graphql": {
+      "enabled": true,
+      "path": "/graphql",
+      "allow-introspection": true
+    },
+    "host": {
+      "cors": {
+        "origins": ["http://localhost:4280"],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "StaticWebApps"
+      },
+      "mode": "production"
+    }
+  },
+  "entities": {
+    "Project": {
+      "source": "dbo.projects",
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

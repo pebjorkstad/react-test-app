@@ -1,0 +1,19 @@
+type Project @model {
+    id: ID
+    title: String
+    therapeuticArea: String
+    studyType: String
+    agreementType: String
+    agreementStatus: String
+    intitutionName: String
+    university: String
+    contactAtInstitution: String
+    primaryContactAtPfizer: String
+    secondaryContactAtPfizer: String
+    budgetCathegory: String
+    budgetProduct: String
+    startOfAssigment: String
+    endOfAssignment: String
+    totalAmount: Int
+    pO: String
+}

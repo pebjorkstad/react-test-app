@@ -1,18 +1,19 @@
 import React from "react";
 import "./App.css";
+import useProjects from "./projectsApi";
+
 
 function ProductsPanel() {
 
-    const products = [
-        { title: 'Cabbage', id: 1 },
-        { title: 'Garlic', id: 2 },
-        { title: 'Apple', id: 3 },
-    ];
-    const listItems = products.map(product =>
-        <li key={product.id}>
-            {product.title}
+    const projects = useProjects();
+    console.log("Projects: ", projects);
+
+    const listItems = projects.map(project =>
+        <li key={project.id}>
+            {project.title}
         </li>
     );
+
 
     return (
         <div>
