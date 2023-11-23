@@ -5,6 +5,10 @@ import useProjects from "./projectsApi";
 
 function ProductsPanel() {
 
+    fetch('/data-api/rest/Project')
+        .then((response) => response.json())
+        .then(console.log);
+
     const projects = useProjects();
     console.log("Projects: ", projects);
 
