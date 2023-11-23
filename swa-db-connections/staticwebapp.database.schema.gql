@@ -1,5 +1,5 @@
 type Project @model {
-    id: ID
+    id: ID!
     title: String
     therapeuticArea: String
     studyType: String

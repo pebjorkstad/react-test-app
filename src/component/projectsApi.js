@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 
 const PROJECTS_QUERY = gql`
 query Projects {
-    projects {
+    project_by_pk {
         id
         title
         therapeuticArea
