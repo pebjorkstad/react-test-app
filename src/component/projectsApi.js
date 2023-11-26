@@ -3,7 +3,7 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import gql from 'graphql-tag';
 
 const PROJECTS_QUERY = gql`
-query Project_by_pk {
+query Project {
     projects {
         items {
             id
@@ -23,12 +23,19 @@ query Project_by_pk {
             endOfAssignment
             totalAmount
             pO
+            milestones {
+                id
+                name
+                fulfillmentDate
+                fulfillmentPayment
+            }
         }
     }
 }
 `;
 
 function useProjects() {
+
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
@@ -50,7 +57,13 @@ function useProjects() {
               id: project.id,
               title: project.title,
               status: project.agreementStatus,
-              agreementType: project.agreementType
+              agreementType: project.agreementType,
+              milestones: project.milestones.map(milestone => ({
+                id: milestone.id,
+                name: milestone.name,
+                fulfillmentDate: milestone.fulfillmentDate,
+                fulfillmentPayment: milestone.fulfillmentPayment
+              }))
             }));
 
             setProjects(fetchedProjects);

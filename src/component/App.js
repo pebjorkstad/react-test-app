@@ -11,6 +11,15 @@ function ProductsPanel() {
     const listItems = projects.map(project =>
         <li key={project.id}>
             {project.title} - {project.status} - {project.agreementType}
+            <ul>
+                {
+                    project.milestones.map(milestone => (
+                        <li key={milestone.id}>
+                            {milestone.name} - {milestone.fulfillmentDate} - {milestone.fulfillmentPayment}
+                        </li>
+                    ))
+                }
+            </ul>
         </li>
     );
 

@@ -16,4 +16,12 @@ type Project @model {
     endOfAssignment: String
     totalAmount: Int
     pO: String
+    milestones: [ Milestone ]
+}
+
+type Milestone {
+    id: String
+    name: String
+    fulfillmentDate: String
+    fulfillmentPayment: String
 }
