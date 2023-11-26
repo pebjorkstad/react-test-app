@@ -5,7 +5,6 @@
     "connection-string": "AccountEndpoint=https://pfizer-project.documents.azure.com:443/;AccountKey=UDRmj20PVWsZYM6P0BWlHY1aiNhUJy9kldtcA9SifoNFqbd3ri8jTRLasHxofaSUU62JsYe0pYoTACDbbpQ7Lw==",
     "options": {
       "database": "scientific-footprint",
-      "container": "projects",
       "schema": "staticwebapp.database.schema.gql"
     }
   },
