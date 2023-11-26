@@ -3,25 +3,27 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import gql from 'graphql-tag';
 
 const PROJECTS_QUERY = gql`
-query Projects {
-    project_by_pk {
-        id
-        title
-        therapeuticArea
-        studyType
-        agreementType
-        agreementStatus
-        intitutionName
-        university
-        contactAtInstitution
-        primaryContactAtPfizer
-        secondaryContactAtPfizer
-        budgetCathegory
-        budgetProduct
-        startOfAssigment
-        endOfAssignment
-        totalAmount
-        pO
+query Project_by_pk {
+    projects {
+        items {
+            id
+            title
+            therapeuticArea
+            studyType
+            agreementType
+            agreementStatus
+            intitutionName
+            university
+            contactAtInstitution
+            primaryContactAtPfizer
+            secondaryContactAtPfizer
+            budgetCathegory
+            budgetProduct
+            startOfAssigment
+            endOfAssignment
+            totalAmount
+            pO
+        }
     }
 }
 `;
@@ -42,7 +44,8 @@ function useProjects() {
     client.query({ query: PROJECTS_QUERY })
       .then(result => {
         if (result.data && result.data.projects) {
-          const fetchedProjects = result.data.projects
+          console.log("Result: %s", result.data.projects.items);
+          const fetchedProjects = result.data.projects.items
             .map(project => ({
               id: project.id,
               title: project.title,

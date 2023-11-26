@@ -5,19 +5,14 @@ import useProjects from "./projectsApi";
 
 function ProductsPanel() {
 
-    fetch('/data-api/rest/Project')
-        .then((response) => response.json())
-        .then(console.log);
-
     const projects = useProjects();
     console.log("Projects: ", projects);
 
     const listItems = projects.map(project =>
         <li key={project.id}>
-            {project.title}
+            {project.title} - {project.status} - {project.agreementType}
         </li>
     );
-
 
     return (
         <div>
